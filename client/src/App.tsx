@@ -1,6 +1,3 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
@@ -11,15 +8,13 @@ import RegisterPage from './pages/RegisterPage'
 import DashboardPage from './pages/DashboardPage'
 import GoalsPage from './pages/GoalsPage'
 import ExpensesPage from './pages/ExpensesPage'
-import NavBar from './component/common/Navbar'
+import Navbar from './components/common/Navbar'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <Router>
       <AuthProvider>
-        <NavBar />
+        <Navbar />
         <div className="container mt-4">
           <Routes>
             <Route path="/login" element={<LoginPage />} />
