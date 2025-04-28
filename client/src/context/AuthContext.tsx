@@ -28,6 +28,7 @@ export const AuthProvider = ({ children } : { children : ReactNode }) => {
             }
             setLoading(false)
         }
+        loadUser()
     }, [])
 
     const login = async (email: string, password: string) => {
