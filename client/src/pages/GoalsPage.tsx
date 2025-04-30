@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import api from '../services/api';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { useAuth } from '../context/AuthContext';
+// import { useAuth } from '../context/AuthContext';
 import GoalCard from '../components/goals/GoalCard';
 
 const GoalsPage: React.FC = () => {
-    const { user } = useAuth();
+    // const { user } = useAuth();
     const [goals, setGoals] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
     const [editingGoal, setEditingGoal] = useState<any>(null);

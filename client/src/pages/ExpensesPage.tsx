@@ -5,13 +5,13 @@ import { Chart, registerables } from 'chart.js';
 import { Formik, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import api from '../services/api';
-import { useAuth } from '../context/AuthContext';
+// import { useAuth } from '../context/AuthContext';
 import { Expense } from '../types';
 
 Chart.register(...registerables);
 
 const ExpensesPage = () => {
-    const { user } = useAuth();
+    // const { user } = useAuth();
     const [expenses, setExpenses] = useState<Expense[]>([]);
     const [filteredExpenses, setFilteredExpenses] = useState<Expense[]>([]);
     const [loading, setLoading] = useState(true);
