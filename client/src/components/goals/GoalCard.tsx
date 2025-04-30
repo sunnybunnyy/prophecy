@@ -1,13 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ProgressBar } from 'react-bootstrap';
+import api from '../../services/api';
 
 const GoalCard: React.FC<{
     goal: any;
     onEdit: () => void;
     onDelete: () => void
 }> = ({ goal, onEdit, onDelete }) => {
+    const [amountToAdd, setAmountToAdd] = useState('');
     const progress = (goal.currentAmount / goal.targetAmount) * 100;
 
+    const handleAddAmount = async () => {
+        try {
+            await api.put(`/goals/${goal.id}`, {
+                currentAmount: goal.currentAmount + parseFloat(amountToAdd)
+            });
+            onEdit(); // Refresh the goal
+            setAmountToAdd('');
+        } catch (err) {
+            console.error(err);
+        }
+    };
     return (
         <div className='card h-100'>
             <div className='card-body'>
@@ -33,6 +46,24 @@ const GoalCard: React.FC<{
                         </small>
                     </p>
                 )}
+
+                <div className='input-group mt-2'>
+                    <input
+                        type="number"
+                        className='form-control'
+                        placeholder='Amount to add'
+                        value={amountToAdd}
+                        onChange={(e) => setAmountToAdd(e.target.value)}
+                    />
+                    <button
+                        className="btn btn-outline-secondary"
+                        type="button"
+                        onClick={handleAddAmount}
+                        disabled={!amountToAdd || isNaN(parseFloat(amountToAdd))}
+                    >
+                        Add
+                    </button>
+                </div>
 
                 <div className='d-flex justify-content-between mt-3'>
                     <button onClick={onEdit} className='btn btn-sm btn-outline-primary'>
