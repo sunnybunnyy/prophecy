@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ProgressBar } from 'react-bootstrap';
 import api from '../../services/api';
+import ProjectionCalculator from './ProjectionCalculator';
 
 const GoalCard: React.FC<{
     goal: any;
@@ -73,6 +74,12 @@ const GoalCard: React.FC<{
                         Delete
                     </button>
                 </div>
+
+                <ProjectionCalculator
+                    currentAmount={goal.currentAmount}
+                    monthlyContribution={goal.monthlyContribution}
+                    annualContribution={goal.annualContribution}
+                />
             </div>
         </div>
     );
