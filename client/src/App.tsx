@@ -6,7 +6,7 @@ import PrivateRoute from './components/common/PrivateRoute'
 import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
 import DashboardPage from './pages/DashboardPage'
-import GoalsPage from './pages/'
+import GoalsPage from './pages/GoalsPage'
 import ExpensesPage from './pages/ExpensesPage'
 import Navbar from './components/common/Navbar'
 
