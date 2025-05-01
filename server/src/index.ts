@@ -4,6 +4,9 @@ import { PrismaClient } from '../generated/prisma';
 import userRouter from './routes/user';
 import goalRouter from './routes/goals';
 import expenseRouter from './routes/expenses';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const prisma = new PrismaClient();
 const app = express();
